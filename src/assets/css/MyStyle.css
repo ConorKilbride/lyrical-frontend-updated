@@ -1,0 +1,101 @@
+.navBlue {
+    background-color: #07161B;
+  }
+  
+.backgroundBlue {
+    background-color: #07161B;
+  }
+  
+.textWhite {
+    color: white;
+  }
+
+.textBlack {
+    color: black;
+  }
+  
+.nav-link {
+    color: white !important;
+  }
+
+.bgBlue {
+    background-color: #07161B;
+}
+
+.bannerBlue {
+    background-color: #0B2F3A;
+}
+
+.paddingTop {
+    padding-top: 0.75rem;
+}
+
+.paddingBottom {
+    padding-bottom: 0.75rem;
+}
+
+.paddingLeft {
+    padding-left: 0.75rem;
+}
+
+.paddingRight {
+    padding-right: 0.75rem;
+}
+
+.padding {
+    padding-bottom: .75rem;
+    padding-top: .75rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+.width100 {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.darkBlue {
+    background-color: #09232B;
+}
+
+.grey {
+    background-color: lightgray;
+}
+
+.nrImgBox {
+    height: 120px;
+    width: 324px;
+}
+
+.nrBoxBlue {
+    background-color: #0B3D4A;
+}
+
+.ttwLightBlue {
+    background-color: #527C8A;
+}
+
+.ttwImgBox {
+    height: 80px;
+    width: 52px;
+}
+
+.ecImgBox {
+    height: 80px;
+    width: 80px;
+    padding-left: 0.75rem;
+}
+
+.taBackgroundBlue {
+    background-color: #1C4D56;
+}
+
+.buttonBlue {
+    background-color: #0B2F3A !important;
+    color: white !important;
+}
+
+.genreCard {
+    background-color: #1C4D56 !important;
+}
