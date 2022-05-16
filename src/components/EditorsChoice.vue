@@ -11,6 +11,7 @@
 
             
             <p>Title: <router-link class="text-center" :to="{ name: 'album_show', params:{ _id: album._id }}">{{ album.title }}</router-link></p>
+            <p>Artist: <router-link class="text-center" :to="{ name: 'artist_show', params:{ _id: album.artist._id }}">{{ album.artist.name }}</router-link></p>
             <p>Genre: {{ album.genre }}</p>
 
         </b-card>
