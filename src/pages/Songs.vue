@@ -7,7 +7,7 @@
             </div>
 
             <div class="textWhite text-center col-6">
-                <h2>This is the All Songs page</h2>
+                <h2>Songs</h2>
 
                 <!-- <h3>{{ song.title }}</h3>
                 <h3>{{ song.lenght }}</h3>

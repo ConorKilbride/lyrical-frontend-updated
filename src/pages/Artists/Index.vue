@@ -3,6 +3,7 @@
 
       <h2 class="textWhite">Artists</h2>
 
+      <!-- I tried adding a get artist by name method to our API, searching name doesn't give an error but says there's no artist with that name, wasn't sure how to fix it. -->
       <div class="search-box">
             <input
                 type="text"

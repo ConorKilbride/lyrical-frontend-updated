@@ -10,6 +10,8 @@
             <div class="textWhite text-center col-4">
                 <h2> <b> {{song.title}} </b> </h2>
                 <p> {{ song.lyrics }}</p>
+                <h3> <b> Description </b> </h3>
+                <p> {{song.description}} </p>
             </div>
 
             <div class="col-4">
