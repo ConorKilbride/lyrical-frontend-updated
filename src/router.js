@@ -33,23 +33,38 @@ export default new Router({
 
     {
       path: "/artists",
-      name: "artists_index",
+      name: "artist_index",
       component: () => import("./pages/Artists/Index.vue")
     },
     {
-      path: "/artist/:_id",
+      path: "/artists/:_id",
       name: "artist_show",
       component: () => import("./pages/Artists/Show.vue")
     },
+
+    //// ALBUMS ////
+
     {
       path: "/album",
       name: "album",
       component: () => import("./pages/Album.vue")
     },
     {
-      path: "/song",
-      name: "song",
-      component: () => import("./pages/Song.vue")
+      path: "/album/:_id",
+      name: "album_show",
+      component: () => import("./pages/AlbumShow.vue")
+    },
+
+    //// SONGS ////
+    {
+      path: "/songs",
+      name: "songs",
+      component: () => import("./pages/Songs.vue")
+    },
+    {
+      path: "/songs/:_id",
+      name: "song_show",
+      component: () => import("./pages/SongShow.vue")
     },
   ]
 });

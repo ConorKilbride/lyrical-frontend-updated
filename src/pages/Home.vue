@@ -16,41 +16,17 @@
         <!-- New Releases -->
         <div class="darkBlue">
             <h2 class="textWhite padding">New Releases</h2>
-            <div class="row padding">
-                <div class="col-sm nrBoxBlue padding">
-                    <div class="grey text-center nrImgBox">
-                        <p>Image</p>
-                    </div>
-                    <p class="text-center textWhite">
-                        Title of album or song
-                        <br>
-                        Artist
-                    </p>
-                </div>
-                <div class="col-sm padding">
-                    <div class="grey text-center nrImgBox">
-                        <p>Image</p>
-                    </div>
-                    <p class="text-center textWhite">
-                        Title of album or song
-                        <br>
-                        Artist
-                    </p>
-                </div>
-                <div class="col-sm nrBoxBlue padding">
-                    <div class="grey text-center nrImgBox">
-                        <p>Image</p>
-                    </div>
-                    <p class="text-center textWhite">
-                        Title of album or song
-                        <br>
-                        Artist
-                    </p>
-                </div>
-            </div>
+            <b-col>
+                <b-row cols="3" class="padding">
+                    <NewReleasesCard
+                        v-for="song in songs.slice(0,3)"
+                        :key="song._id"
+                        :song="song"
+                    />
+                </b-row>
+            </b-col>
             <br>
         </div>
-
 
         <br>
         <br>
@@ -148,55 +124,16 @@
             <!-- Editors Choice -->
             <div class="nrBoxBlue col">
                 <h2 class="textWhite paddingLeft">Editors Choice</h2>
-                <div class="row padding justify-content-between">
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
+                <b-col>
+                    <b-row cols="2" class="padding">
+                        <EditorsChoiceCard
+                            v-for="album in albums.slice(0,10)"
+                            :key="album._id"
+                            :album="album"
+                        />
+                    </b-row>
+                 </b-col>
 
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-                </div>
-
-                <div class="row padding justify-content-between">
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-                </div>
-                
-                <div class="row padding justify-content-between">
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-                </div>
-
-                <div class="row padding justify-content-between">
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-                </div>
-
-                <div class="row padding justify-content-between">
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-
-                    <div class="grey text-center ecImgBox col-5">
-                        <p>Image</p>
-                    </div>
-                </div>
                 <!-- Newsletter -->
                 <div class="ttwLightBlue row">
                     <div class="col-5 textBlack padding">
@@ -219,44 +156,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <!-- New Releases -->
-        <div class="darkBlue">
-            <h2 class="textWhite padding">New Releases</h2>
-            <div class="row padding">
-                <div class="col-sm nrBoxBlue padding">
-                    <div class="grey text-center nrImgBox">
-                        <p>Image</p>
-                    </div>
-                    <p class="text-center textWhite">
-                        Title of album or song
-                        <br>
-                        Artist
-                    </p>
-                </div>
-                <div class="col-sm padding">
-                    <div class="grey text-center nrImgBox">
-                        <p>Image</p>
-                    </div>
-                    <p class="text-center textWhite">
-                        Title of album or song
-                        <br>
-                        Artist
-                    </p>
-                </div>
-                <div class="col-sm nrBoxBlue padding">
-                    <div class="grey text-center nrImgBox">
-                        <p>Image</p>
-                    </div>
-                    <p class="text-center textWhite">
-                        Title of album or song
-                        <br>
-                        Artist
-                    </p>
-                </div>
-            </div>
-            <br>
         </div>
         <br>
 
@@ -398,20 +297,57 @@
 </template>
 
 <script>
+import axios from 'axios'
+import NewReleasesCard from '@/components/NewReleases.vue'
+import EditorsChoiceCard from '@/components/EditorsChoice.vue'
+
 
 export default {
   name: 'Home',
   components: {
+      NewReleasesCard,
+      EditorsChoiceCard
   },
   props: {
-    loggedIn: Boolean
+    //loggedIn: Boolean
   },
   data(){
     return {
-
+        songs: [],
+        albums: [],
+        artists: []
     }
   },
+  mounted(){
+    this.getSong()
+    this.getAlbum()
+    this.getArtist()
+  },
   methods:{
+    getSong(){
+        axios.get('http://localhost:3000/song')
+            .then((response) => {
+            console.log(response.data)
+                this.songs = response.data
+            })
+            .catch(error => console.log(error))
+    },
+    getAlbum(){
+        axios.get('http://localhost:3000/album')
+            .then((response) => {
+            console.log(response.data)
+                this.albums = response.data
+            })
+            .catch(error => console.log(error))
+    },
+    getArtist(){
+        axios.get('http://localhost:3000/artist')
+            .then((response) => {
+            console.log(response.data)
+                this.artists = response.data
+            })
+            .catch(error => console.log(error))
+    },
   }
 }
 

@@ -2,7 +2,7 @@
     <b-col>
     <h2></h2>
 
-    <div v-if="!loggedIn">
+    <div v-if="!loggedIn" class="textWhite">
       Email: <input type="email" v-model="email" /> <br>
       Password: <input type="password" v-model="password" />
       <button @click="login()">Submit</button>
@@ -31,9 +31,12 @@ export default {
   },
   data(){
     return {
-        email:"user@lyrical.com",
-        password:"secret"
+        email:"",
+        password:""
 
+      //email: user@lyrical.com
+      //password: secret
+      
       //loggedIn: false
     }
   },

@@ -2,6 +2,21 @@
     <b-container>
 
       <h2 class="textWhite">Artists</h2>
+
+      <div class="search-box">
+            <input
+                type="text"
+                v-model="term"
+                placeholder="Search Artists"
+                v-on:keyup.enter="searchArtists()"
+            />
+            <b-button
+                class="float-right"
+                variant="primary"
+                @click="searchArtists()"
+                >Search
+                </b-button> 
+        </div>
         
       <div>
         <b-col>
@@ -16,7 +31,7 @@
           
           </b-row>
         </b-col>
-    </div> 
+      </div> 
 
     </b-container>
 </template>
@@ -26,7 +41,7 @@ import axios from 'axios'
 import AllArtistCard from '@/components/AllArtistCard.vue'
 
 export default {
-  name: 'ArtistsIndex',
+  name: 'ArtistIndex',
   components: {
     AllArtistCard,
   },
@@ -49,7 +64,22 @@ export default {
                 this.artists = response.data
             })
             .catch(error => console.log(error))
-    }
+    },
+    searchArtists() {
+            if(!this.term){
+                    alert("Please enter a search term!")
+                    return
+                }
+
+            axios.get(`http://localhost:3000/artist/${this.term}?fullText=true`)
+            .then(response => {
+                console.log(response.data)
+                this.countries = response.data
+            })
+            .catch(error => console.log(error))
+
+            this.term = ""
+        }
   }
 }
 

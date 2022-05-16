@@ -11,9 +11,9 @@
       <button @click="register()">Submit</button>
     </div>
 
-    <p class="textWhite">
+    <!-- <p class="textWhite">
       You succesfuly registered
-    </p>
+    </p> -->
 
   </b-col>  
 </template>

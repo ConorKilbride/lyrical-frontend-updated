@@ -15,10 +15,10 @@
                 class="mb-2 genreCard paddingTop"
             >
                 <b-card-text>
-                    <router-link class="text-center textWhite" to="/album">Album</router-link>
+                    <p class="text-center textWhite" to="/album">{{ this.artist.name }}</p>
                 </b-card-text>
             </b-card> -->
-            <SingleArtist 
+            <SingleArtist
               v-for="artist in artists"
               :key="artist._id"
               :artist="artist"
@@ -34,19 +34,16 @@
 import SingleArtist from '@/components/SingleArtist.vue'
 import axios from 'axios';
 //const LYRICAL_URL = "http://localhost:3000";
-// import ArtistCard from './components/ArtistCard.vue'
+//import ArtistCard from './components/ArtistCard.vue'
 
 export default {
-  name: 'Artist',
+  name: 'ArtistShow',
   components: {
     SingleArtist,
   },
-  props: {
-    loggedIn: Boolean
-  },
   data(){
     return {
-      artist: {}
+      artists: {}
     }
   },
   mounted() {
@@ -58,7 +55,7 @@ export default {
         .get(`http://localhost:3000/artist/${this.$route.params._id}`)
         .then((response) => {
         console.log(response.data)
-            this.artist = response.data
+            this.artists = response.data
         })
         .catch(error => console.log(error))
      }
